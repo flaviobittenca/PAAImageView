@@ -7,7 +7,7 @@
 //
 
 #import "PAAImageView.h"
-#import "AFNetworking/AFNetworking.h"
+#import "AFNetworking.h"
 
 #pragma mark - Utils
 
