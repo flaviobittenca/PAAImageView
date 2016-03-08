@@ -179,28 +179,28 @@ NSString * const paa_identifier = @"paa.imagecache.tg";
     }
     else
     {
-        __weak __typeof(self)weakSelf = self;
-        AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:urlRequest];
-        requestOperation.responseSerializer = [AFImageResponseSerializer serializer];
-        [requestOperation setDownloadProgressBlock:^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {
-            CGFloat progress = (CGFloat)totalBytesRead/(CGFloat)totalBytesExpectedToRead;
-            
-            self.progressLayer.strokeEnd        = progress;
-            self.backgroundLayer.strokeStart    = progress;
-        }];
-        [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-            UIImage *image = responseObject;
-            [weakSelf updateWithImage:image animated:YES];
-            if(self.cacheEnabled)
-            {
-                [self.cache setImage:responseObject forURL:URL];
-            }
-            if(completionBlock) completionBlock(nil);
-            
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            if(completionBlock) completionBlock(error);
-        }];
-        [requestOperation start];
+//        __weak __typeof(self)weakSelf = self;
+//        AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:urlRequest];
+//        requestOperation.responseSerializer = [AFImageResponseSerializer serializer];
+//        [requestOperation setDownloadProgressBlock:^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {
+//            CGFloat progress = (CGFloat)totalBytesRead/(CGFloat)totalBytesExpectedToRead;
+//            
+//            self.progressLayer.strokeEnd        = progress;
+//            self.backgroundLayer.strokeStart    = progress;
+//        }];
+//        [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+//            UIImage *image = responseObject;
+//            [weakSelf updateWithImage:image animated:YES];
+//            if(self.cacheEnabled)
+//            {
+//                [self.cache setImage:responseObject forURL:URL];
+//            }
+//            if(completionBlock) completionBlock(nil);
+//            
+//        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//            if(completionBlock) completionBlock(error);
+//        }];
+//        [requestOperation start];
     }
 }
 
